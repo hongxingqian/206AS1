@@ -91,7 +91,7 @@ namespace assginment1
 
             // Enter function to allow players to go to rooms.
             void Enter(Room a_rLocation, Hero a_hPlayer, Character a_cCharacter) {
-                a_rLocation.description();
+                a_rLocation.Description();
                 Console.WriteLine();
 
                 if (a_cCharacter == null)
@@ -210,12 +210,12 @@ namespace assginment1
                 if (room.Left != null)
                 {
                     Console.WriteLine("\nThere is a LEFT path that you can go next:");
-                    room.Left.description();
+                    room.Left.PreDescription();
                 }
                 if (room.Right != null)
                 {
                     Console.WriteLine("\nThere is a RIGHT path that you can go next:");
-                    room.Right.description();
+                    room.Right.PreDescription();
                 }
             }
 
@@ -227,7 +227,7 @@ namespace assginment1
 
                 while (direction == -1)
                 {
-                    string choice = Console.ReadLine().ToUpper();  // Making the input case-insensitive
+                    string choice = Console.ReadLine().ToUpper();
 
                     if (choice == "R")
                     {
@@ -303,8 +303,12 @@ namespace assginment1
                         string choice = Console.ReadLine();
                         if (choice == "t")
                         {
-                            Combat(a_hPlayer, a_cCharacter);
+                            Console.WriteLine(a_cCharacter.Conversation);
+                            ShowPaths(a_rLocation);
+                            Console.WriteLine("Enter 'R' to GO RIGHT or 'L' to GO LEFT, or 'B' to GO BACK. ");
+                            WaitingValidInput(a_rLocation, a_hPlayer, a_cCharacter);
                             isTypeCorrect = true;
+
                         }
                         else if (choice == "e")
                         {
@@ -325,6 +329,9 @@ namespace assginment1
                         if (choice == "a")
                         {
                             Combat(a_hPlayer, a_cCharacter);
+                            //~~ShowPaths(a_rLocation);
+                            Console.WriteLine("Enter 'R' to GO RIGHT or 'L' to GO LEFT, or 'B' to GO BACK. ");
+                            WaitingValidInput(a_rLocation, a_hPlayer, a_cCharacter);
                             isTypeCorrect = true;
                         }
                         else if (choice == "e")
@@ -344,19 +351,21 @@ namespace assginment1
 
 
 
-            Human citizen = new Human("Noya","A skinny short girl is looking at you.");
-            Hero player = new Hero("max", "A nice guy.", 3, 1, true);
-            Boss professor = new Boss("Alberto", "A big giant ulgy dragon.", 15, 1, true);
-            Minion mini1 = new Minion("tao", "A stupid goblin.");
+            Human citizen = new Human("Noya","A skinny short girl is looking at you.", "Hi, I got caught by the monster 'Alberto'!  Please defeat him and save me!");
+            Hero player = new Hero("max", "A nice guy.", "I am Max! I am a nice guy!", 3, 1, true);
+            Boss professor = new Boss("Alberto", "A big giant ulgy dragon.", "You will die just like other heros who challenged me!", 15, 1, true);
+            Minion mini1 = new Minion("tao", "A stupid goblin is looking at you and it wants to eat you!.", "Hi, I like to eat human and I am smart!", 2, 1,true);
 
-            Room castle = new Room("Castle", "You see a big and old castle in front of you.");
-            Room castleGate = new Room("castleGate", "You see a big iron gate blocks your path and a citizen is crying in the front.",citizen);
-            Room room1 = new Room("Room1", "There is no light in the room. You can not see anything.", mini1);
-            Room room2 = new Room("Room2","You see a tiny room with a monster in the front.", mini1);
+            Room castle = new Room("Castle", "You see a big and old castle in front of you.", "There is a huge castle standing out in the top of the hill.");
+            Room castleGate = new Room("castleGate", "You see a big iron gate blocks your path and a citizen is crying in the front.", "There is a big door in the center of the castle!",citizen);
+            Room room1 = new Room("Room1", "There is no light in the room. You can not see anything.", "There is a small tunnel and you can barely walk in.", mini1);
+            Room room2 = new Room("Room2","You see a tiny room with a monster in the front.", "The way is going downstars and you can see subtle light coming from the room.", mini1);
             castle.m_Left = castleGate;
             castleGate.m_Left = room1;
             castleGate.m_Right = room2;
             castleGate.m_previous = castle;
+            room1.m_previous = castleGate;
+            room2.m_previous = castleGate;
 
 
             player.Print();
@@ -364,7 +373,6 @@ namespace assginment1
             mini1.Print();
             professor.Print();
             Enter(castle, player, castle.GetCharacter);
-            // Combat(player, mini1);
         }
     }
 }

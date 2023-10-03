@@ -8,16 +8,16 @@ namespace assginment1
 {
     internal class Hero : Character
     {
-        public Hero(string a_sName, string a_sDescription) : base(a_sName, a_sDescription)
+        public Hero(string a_sName, string a_sDescription, string a_sConversation) : base(a_sName, a_sDescription, a_sConversation)
         {
 
         }
-        public Hero(string a_sName, string a_sDescription, int a_nLevel, int a_iRelationship, Boolean a_bDeadLive) : base(a_sName, a_sDescription, a_nLevel, a_iRelationship, a_bDeadLive)
+        public Hero(string a_sName, string a_sDescription, string a_sConversation, int a_nLevel, int a_iRelationship, Boolean a_bDeadLive) : base(a_sName, a_sDescription, a_sConversation, a_nLevel, a_iRelationship, a_bDeadLive)
         {
 
         }
 
-        public override void Init(string a_sName, string a_sDescription, int a_nLevel, int a_iRelationship, Boolean a_bDeadLive)
+        public override void Init(string a_sName, string a_sDescription, string a_sConversation, int a_nLevel, int a_iRelationship, Boolean a_bDeadLive)
         {
             if (a_iRelationship == 0 || a_iRelationship == 1)
             {

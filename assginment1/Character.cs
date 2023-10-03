@@ -15,6 +15,7 @@ namespace assginment1
         protected bool m_bDeadLive;
         protected string m_sName = "";
         protected string m_sDescription = "";
+        protected string m_sConversation = "";
         protected float m_fHP = 50.0f;
         protected float m_fMaxHP = 50.0f;
         protected float m_fDefense = 1.0f;
@@ -22,16 +23,16 @@ namespace assginment1
         protected int m_nLevel = 0;
         protected float m_fHeal = 1.0f;
         public Random random = new Random();
-        public Character(string a_sName, string a_sDescription)
+        public Character(string a_sName, string a_sDescription, string a_sConversation)
         {
-            Init(a_sName, a_sDescription, 1, 0, true);
+            Init(a_sName, a_sDescription, a_sConversation, 1, 0, true);
         }
-        public Character(string a_name, string a_sDescription, int a_nLevel, int m_iRelationship, Boolean a_bDeadLive)
+        public Character(string a_name, string a_sDescription, string a_sConversation,  int a_nLevel, int m_iRelationship, Boolean a_bDeadLive)
         {
-            Init(a_name, a_sDescription, a_nLevel, m_iRelationship, a_bDeadLive);
+            Init(a_name, a_sDescription, a_sConversation, a_nLevel, m_iRelationship, a_bDeadLive);
         }
 
-        public virtual void Init (string a_sName, string a_sDescription, int a_nLevel,int a_iRelationship, Boolean a_bDeadLive)
+        public virtual void Init (string a_sName, string a_sDescription, string a_sConversation, int a_nLevel,int a_iRelationship, Boolean a_bDeadLive)
         {
             if (a_iRelationship == 0 || a_iRelationship == 1)
             {
@@ -45,6 +46,7 @@ namespace assginment1
                 m_fHeal += m_nLevel / 2;
                 m_iRelationship = a_iRelationship;
                 m_sDescription = a_sDescription;
+                m_sConversation = a_sConversation;
             }
             else
             {
@@ -92,6 +94,10 @@ namespace assginment1
         public bool DeathorLive
         {
             get { return m_bDeadLive; }
+        }
+        public string Conversation
+        {
+            get { return m_sConversation; }
         }
         public void Fight (Character a_character)
         {
