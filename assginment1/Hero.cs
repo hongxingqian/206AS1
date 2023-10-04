@@ -8,16 +8,17 @@ namespace assginment1
 {
     internal class Hero : Character
     {
-        public Hero(string a_sName, string a_sDescription, string a_sConversation) : base(a_sName, a_sDescription, a_sConversation)
+        public Hero(string a_sName, string a_sDescription, string a_sConversation, Item a_iKey) : base(a_sName, a_sDescription, a_sConversation, a_iKey)
         {
 
         }
-        public Hero(string a_sName, string a_sDescription, string a_sConversation, int a_nLevel, int a_iRelationship, Boolean a_bDeadLive) : base(a_sName, a_sDescription, a_sConversation, a_nLevel, a_iRelationship, a_bDeadLive)
+        public Hero(string a_sName, string a_sDescription, string a_sConversation, int a_nLevel, int a_iRelationship, Boolean a_bDeadLive, Item a_iDropableItem, Item a_iKey) 
+            : base(a_sName, a_sDescription, a_sConversation, a_nLevel, a_iRelationship, a_bDeadLive, a_iDropableItem, a_iKey)
         {
 
         }
 
-        public override void Init(string a_sName, string a_sDescription, string a_sConversation, int a_nLevel, int a_iRelationship, Boolean a_bDeadLive)
+        public override void Init(string a_sName, string a_sDescription, string a_sConversation, int a_nLevel, int a_iRelationship, Boolean a_bDeadLive, Item a_iDropableItem, Item a_iKey)
         {
             if (a_iRelationship == 0 || a_iRelationship == 1)
             {
@@ -31,11 +32,14 @@ namespace assginment1
                 m_fHeal += m_nLevel / 2;
                 m_iRelationship = a_iRelationship;
                 m_sDescription = a_sDescription;
+                m_sConversation = a_sConversation;
+                m_iDropableItem = a_iDropableItem;
             }
             else
             {
                 Console.WriteLine("error, relationship can only be 1 or 0.");
             }
         }
+
     }
 }
