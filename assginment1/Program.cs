@@ -10,7 +10,7 @@ namespace assginment1
             // combat actions between player and enemy!
              void Combat(Character a_cPlayer, Character a_cEnemy)
             {
-                Console.WriteLine("The Fight starts!");
+                Console.WriteLine("\n---The Fight starts!---");
                 bool isPlayerTurn = true;
                 bool isTypeWrong = false;
                 while (a_cPlayer.HP > 0 && a_cEnemy.HP > 0)
@@ -303,7 +303,7 @@ namespace assginment1
                 {
                     if (a_cCharacter.Relationship == 0)
                     {
-                        Console.WriteLine("-------------------");
+                        Console.WriteLine("\n-------------------");
                         Console.WriteLine(a_cCharacter.Description);
                         Console.WriteLine("Enter 't' to talk, 's' to skip, or 'e' to leave. ");
                         string choice = Console.ReadLine();
@@ -311,11 +311,11 @@ namespace assginment1
                         {
                             Item droppedKey = a_cCharacter.DropKey(); // local varibale
 
-                            Console.WriteLine("-------------------");
+                            Console.WriteLine("\n-------------------");
                             Console.WriteLine(a_cCharacter.Conversation);
                             if (droppedKey != null)
                             {
-                                Console.WriteLine("-------------------");
+                                Console.WriteLine("\n-------------------");
                                 Console.WriteLine("The person gives a key-shape thing to you: " + droppedKey.LootName);
                                 a_hPlayer.GainLoot(droppedKey);
                                 a_hPlayer.AddItemStatusToCharacter(droppedKey);
@@ -331,7 +331,7 @@ namespace assginment1
 
                         else if (choice == "s")
                         {
-                            Console.WriteLine("-------------------");
+                            Console.WriteLine("\n-------------------");
                             ShowPaths(a_rLocation);
                             Console.WriteLine("\n-----Enter 'R' to GO RIGHT or 'L' to GO LEFT, or 'B' to GO BACK. ");
                             WaitingValidInput(a_rLocation, a_hPlayer, a_cCharacter);
@@ -351,7 +351,7 @@ namespace assginment1
                     }
                     else if (a_cCharacter.Relationship == 1)
                     {
-                        Console.WriteLine("-------------------");
+                        Console.WriteLine("\n-------------------");
                         Console.WriteLine(a_cCharacter.Description);
                         Console.WriteLine("\n-----Enter 'a' to attack or 'e' to escape. ");
                         string choice = Console.ReadLine();
@@ -406,21 +406,24 @@ namespace assginment1
 
 
             Room castle = new Room("Castle", "You see a big and old castle in front of you.", "There is a huge castle standing out in the top of the hill.", rock);
-            Room frontYard = new Room("Front Yard", "You see a run-down front yard in front of the castle", "There is no flowers and grass, only black  lifeless soil.", citizen, stick);
-            Room castleGate = new Room("Castle Gate", "You see a big iron gate blocks your path and a citizen is crying in the front.", "There is a big door in the center of the castle!",citizen1, rock1);
-            Room castleChamber = new Room("First Floor Chamber", "You opens the big door and enters the castle.", " You found the chamber is really big with torches on two sides.", stick1, key1);
+            Room frontYard = new Room("Front Yard", "You kept walking to the yard. There is no flowers and grass, only black  lifeless soil.", "You see a run-down front yard in front of the castle", citizen, stick);
+            Room castleGate = new Room("Castle Gate", "There is a big door in the center of the castle!", "You see a big iron gate blocks your path and a citizen is crying in the front.", citizen1, rock1);
+            Room castleChamberFront = new Room("Front Chamber", " You walked toward it. " +
+                "\nThe Door is around 5 meters tall and it is impossible to open without a key.", "The Door is way too big compare to other tunnels.", stick1, key1);
+            Room castleChamber = new Room("First Floor Chamber", " The inside chamber is really big with torches on the two sides. ", "You Opened the door and passed through.", null);
+            Room smallWareHouse = new Room("Small Ware House", "The room conatins many boxes and smell very bad.", "You can see a small room with some boxes inside.", null);
             Room room1 = new Room("Big Hole", "There is no light in the room. You can not see anything.", "There is a small tunnel and you can barely walk in.", mini1, paper1);
             Room room2 = new Room("Banquet hall", "You see a tiny room with a monster in the front.", "The way is going downstars and you can see subtle light coming from the room.", mini2, dagger);
             castle.leftRoom = frontYard;
             frontYard.rightRoom = castleGate;
-            castleGate.leftRoom = castleChamber;
-            castleChamber.leftRoom = room1;
-            castleChamber.rightRoom = room2;
-            castleChamber.previousRoom = castleGate;
+            castleGate.leftRoom = castleChamberFront;
+            castleChamberFront.leftRoom = castleChamber;
+            castleChamberFront.rightRoom = room2;
+            castleChamberFront.previousRoom = castleGate;
             castleGate.previousRoom = frontYard;
             frontYard.previousRoom = castle;
-            room1.previousRoom = castleChamber;
-            room2.previousRoom = castleChamber;
+            room1.previousRoom = castleChamberFront;
+            room2.previousRoom = castleChamberFront;
 
             Enter(castle, player, castle.GetCharacter);
         }
