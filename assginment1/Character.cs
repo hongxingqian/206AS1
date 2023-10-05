@@ -9,7 +9,7 @@ namespace assginment1
 {
     public class Character
     {
-        protected const int m_iMaxInventorySize = 10;
+        protected const int m_iMaxInventorySize = 100;
         protected Item[] m_iInventory = new Item[m_iMaxInventorySize];
         protected Item m_iDropableItem;
         protected Item m_iKey = null;
@@ -243,7 +243,7 @@ namespace assginment1
                 }
                 if (!itemAdded)
                 {
-                    Console.WriteLine("Your Inventory is full!");
+                    Console.WriteLine("\n-----Your Inventory is full!");
                 }
             }
             else
