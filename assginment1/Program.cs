@@ -422,6 +422,7 @@ namespace assginment1
             Item goldKey = new Item("Gold Key", 0, 0, 0);
             Item diamondKey = new Item("Diamond Key", 0, 0, 0);
 
+
             Human citizen = new Human("Eric", "A skinny girl with a white short hair, is looking at you.", "Hi, My sister got caught by the monster 'Alberto'! " +
                 "\nHe brought her to his nest in the deepest section in the castle. Please defeat him and save her! " +
                 "\nI found this key in the front yard. Maybe you can use it.", IronKey);
@@ -437,16 +438,16 @@ namespace assginment1
                 "\nBut her eyes are watching you!", "gaz..gaz..gaz..", 4, 1, true, sickle, null);
             Minion mini4 = new Minion("Puppet", "You see a tall and thin puppet blocking the path. It is perfectly still, wearing a huge sickle. " +
     "\nBut her eyes are watching you!", "gaz..gaz..gaz..", 4, 1, true, sickle, null);
-            Minion miniBoss = new Minion("Rin", "A Witch is flying in the sky. You can hear her loud laughing...", "You are mine! Die! Hahahaha!", 13, 1, true, brokenArmour, goldKey);
-            Minion guard = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 11, 1, true, ironStick, null);
-            Minion guard1 = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 11, 1, true, ironStick, null);
-            Minion guard2 = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 11, 1, true, ironStick, null);
-            Minion eliteGuard1 = new Minion("Sliver Guard", "A tall fully armored statue begins to move", "You are it's target!", 14, 1, true, sword, null);
-            Minion eliteGuard2 = new Minion("Gold Guard", "A tall and strong fully armored statue begins to move", "You are it's target!", 14, 1, true, sword, null);
-            Minion eliteGuard3 = new Minion("Elite Gold Guard", "The Supreme statue begins to move", "You are it's target!", 17, 1, true, sword1, null);
-            Minion eliteGuard4 = new Minion("Supreme Guard", "The Supreme white statue begins to move", "You are it's target!", 20, 1, true, lendArmour, diamondKey);
-            Minion eliteGuard5 = new Minion("Supreme Guard", "The Supreme dark statue begins to move", "You are it's target!", 20, 1, true, lendWeapon, null);
-            Boss professor = new Boss("Alberto", "A big giant ulgy dragon is screaming at you.", "You will die just like other heros who challenged me!", 28, 1, true, null, null);
+            Minion miniBoss = new Minion("Rin", "A Witch is flying in the sky. You can hear her loud laughing...", "You are mine! Die! Hahahaha!", 16, 1, true, brokenArmour, goldKey);
+            Minion guard = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 18, 1, true, ironStick, null);
+            Minion guard1 = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 18, 1, true, ironStick, null);
+            Minion guard2 = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 18, 1, true, ironStick, null);
+            Minion eliteGuard1 = new Minion("Sliver Guard", "A tall fully armored statue begins to move", "You are it's target!", 20, 1, true, sword, null);
+            Minion eliteGuard2 = new Minion("Gold Guard", "A tall and strong fully armored statue begins to move", "You are it's target!", 23, 1, true, sword, null);
+            Minion eliteGuard3 = new Minion("Elite Gold Guard", "The Supreme statue begins to move", "You are it's target!", 25, 1, true, sword1, null);
+            Minion eliteGuard4 = new Minion("Supreme Guard", "The Supreme white statue begins to move", "You are it's target!", 30, 1, true, lendArmour, diamondKey);
+            Minion eliteGuard5 = new Minion("Supreme Guard", "The Supreme dark statue begins to move", "You are it's target!", 30, 1, true, lendWeapon, null);
+            Boss professor = new Boss("Alberto", "A big giant ulgy dragon is screaming at you.", "You will die just like other heros who challenged me!", 40, 1, true, null, null);
 
 
             Room castle = new Room("Castle", "You see a big and old castle in front of you.", "There is a huge castle standing out in the top of the hill.", rock);
@@ -482,6 +483,7 @@ namespace assginment1
             Room darkChamber9 = new Room("First Floor Chamber", " With blue flames, yous see a huge black statue in the center. ", "A chamber with black lights!", eliteGuard5, purpArmour1);
 
             Room nest = new Room("The Nest", " 'Alberto' is sleeping. But you footsteps sound awakes him up! ", "You finally found the nest.", professor, null, diamondKey);
+            Room prison = new Room("Prison", "You finally find your friends and family.", "There are many people here waiting for the rescue.", professor, null, null);
 
 
             castle.leftRoom = frontYard;
@@ -509,10 +511,11 @@ namespace assginment1
             darkChamber6.leftRoom = darkChamber8;
             darkChamber6.rightRoom = darkChamber9;
             darkChamber8.rightRoom = nest;
+            nest.rightRoom = prison;
 
 
 
-
+            prison.previousRoom = nest;
             nest.previousRoom = darkChamber8;
             darkChamber9.previousRoom = darkChamber6;
             darkChamber8.previousRoom = darkChamber6;
