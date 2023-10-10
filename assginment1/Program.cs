@@ -437,16 +437,16 @@ namespace assginment1
                 "\nBut her eyes are watching you!", "gaz..gaz..gaz..", 4, 1, true, sickle, null);
             Minion mini4 = new Minion("Puppet", "You see a tall and thin puppet blocking the path. It is perfectly still, wearing a huge sickle. " +
     "\nBut her eyes are watching you!", "gaz..gaz..gaz..", 4, 1, true, sickle, null);
-            Boss miniBoss = new Boss("Rin", "A Witch is flying in the sky. You can hear her loud laughing...", "You are mine! Die! Hahahaha!", 6, 1, true, brokenArmour, goldKey);
-            Minion guard = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 7, 1, true, ironStick, null);
-            Minion guard1 = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 7, 1, true, ironStick, null);
-            Minion guard2 = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 7, 1, true, ironStick, null);
-            Minion eliteGuard1 = new Minion("Sliver Guard", "A tall fully armored statue begins to move", "You are it's target!", 9, 1, true, sword, null);
-            Minion eliteGuard2 = new Minion("Gold Guard", "A tall and strong fully armored statue begins to move", "You are it's target!", 11, 1, true, sword, null);
-            Minion eliteGuard3 = new Minion("Elite Gold Guard", "The Supreme statue begins to move", "You are it's target!", 14, 1, true, sword1, null);
-            Minion eliteGuard4 = new Minion("Supreme Guard", "The Supreme white statue begins to move", "You are it's target!", 17, 1, true, lendArmour, diamondKey);
-            Minion eliteGuard5 = new Minion("Supreme Guard", "The Supreme dark statue begins to move", "You are it's target!", 17, 1, true, lendWeapon, null);
-            Boss professor = new Boss("Alberto", "A big giant ulgy dragon is screaming at you.", "You will die just like other heros who challenged me!", 20, 1, true, null, null);
+            Minion miniBoss = new Minion("Rin", "A Witch is flying in the sky. You can hear her loud laughing...", "You are mine! Die! Hahahaha!", 13, 1, true, brokenArmour, goldKey);
+            Minion guard = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 11, 1, true, ironStick, null);
+            Minion guard1 = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 11, 1, true, ironStick, null);
+            Minion guard2 = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 11, 1, true, ironStick, null);
+            Minion eliteGuard1 = new Minion("Sliver Guard", "A tall fully armored statue begins to move", "You are it's target!", 14, 1, true, sword, null);
+            Minion eliteGuard2 = new Minion("Gold Guard", "A tall and strong fully armored statue begins to move", "You are it's target!", 14, 1, true, sword, null);
+            Minion eliteGuard3 = new Minion("Elite Gold Guard", "The Supreme statue begins to move", "You are it's target!", 17, 1, true, sword1, null);
+            Minion eliteGuard4 = new Minion("Supreme Guard", "The Supreme white statue begins to move", "You are it's target!", 20, 1, true, lendArmour, diamondKey);
+            Minion eliteGuard5 = new Minion("Supreme Guard", "The Supreme dark statue begins to move", "You are it's target!", 20, 1, true, lendWeapon, null);
+            Boss professor = new Boss("Alberto", "A big giant ulgy dragon is screaming at you.", "You will die just like other heros who challenged me!", 28, 1, true, null, null);
 
 
             Room castle = new Room("Castle", "You see a big and old castle in front of you.", "There is a huge castle standing out in the top of the hill.", rock);
@@ -525,6 +525,7 @@ namespace assginment1
             darkChamber2.previousRoom = darkChamberInside;
             darkChamberInside.previousRoom = darkChamberGateFront;
             darkChamberGateFront.previousRoom = darkChamberGate;
+            darkChamberGate.previousRoom = courtYard2;
             courtYard2.previousRoom = courtYard;
             courtYard.previousRoom = room2;
             room1.previousRoom = castleChamber;
