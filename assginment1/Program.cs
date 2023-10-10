@@ -102,13 +102,13 @@ namespace assginment1
                         a_cPlayer.AddItemStatusToCharacter(droppedKey);
                         a_cEnemy.DeleteKey();
                     }
-
                     a_cEnemy.Death();
+
                 }
                 else
                 {
+                    a_cPlayer.Death();
                     Console.WriteLine("");
-                    Console.WriteLine("\n-----Game Over! You Lose!");
                 }
             }
 
@@ -117,9 +117,19 @@ namespace assginment1
                 Console.WriteLine();
                 a_rLocation.Description();
                 Console.WriteLine();
-                /////
-                ///
-                if (a_cCharacter == null)
+                if (!a_hPlayer.DeathorLive)
+                {
+                    Console.WriteLine("You spent all your energy trying to get out, but you failed.");
+                    Console.WriteLine("\n-----Game Over! You Lose!");
+                    return;
+                }
+                if (a_cCharacter != null && a_cCharacter.IsBoss() && !a_cCharacter.DeathorLive)
+                {
+                    Console.WriteLine("The Boss is defeated!");
+                    Console.WriteLine("*----------------You Win!----------------*");
+                    return;
+                }
+                if(a_cCharacter == null)
                 {
                     EnterDecision(a_rLocation, a_hPlayer, a_cCharacter);
                 }
@@ -195,12 +205,12 @@ namespace assginment1
                     Console.WriteLine("\n-----There is a LEFT path that you can go next:");
                     room.Left.PreDescription();
                 }
-                else if (room.Right != null)
+                if (room.Right != null)
                 {
                     Console.WriteLine("\n-----There is a RIGHT path that you can go next:");
                     room.Right.PreDescription();
                 }
-                else
+                if(room.Left == null && room.Right == null)
                 {
                     Console.WriteLine("\n-----There is no Room.");
                 }
@@ -468,10 +478,10 @@ namespace assginment1
             Room darkChamber6 = new Room("First Floor Chamber", " With blue flames, yous see a big golden statue in the center. ", "**A chamber with bigger golden lights!**", eliteGuard3, purpWeapon);
             Room darkChamber7 = new Room("First Floor Chamber", " With blue flames, yous see a big golden statue in the center. ", "A chamber with no lights!", eliteGuard3, purpArmour);
 
-            Room darkChamber8 = new Room("First Floor Chamber", " With blue flames, yous see a huge white statue in the center. ", "**A chamber with colorful lights!**", eliteGuard4, purpWeapon1, diamondKey);
+            Room darkChamber8 = new Room("First Floor Chamber", " With blue flames, yous see a huge white statue in the center. ", "**A chamber with colorful lights!**", eliteGuard4, purpWeapon1);
             Room darkChamber9 = new Room("First Floor Chamber", " With blue flames, yous see a huge black statue in the center. ", "A chamber with black lights!", eliteGuard5, purpArmour1);
 
-            Room nest = new Room("The Nest", " 'Alberto' is sleeping. But you footsteps sound awakes him up! ", "You finally found the nest.", professor, null);
+            Room nest = new Room("The Nest", " 'Alberto' is sleeping. But you footsteps sound awakes him up! ", "You finally found the nest.", professor, null, diamondKey);
 
 
             castle.leftRoom = frontYard;

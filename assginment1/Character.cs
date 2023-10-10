@@ -62,6 +62,11 @@ namespace assginment1
                 Console.WriteLine("error, relationship can only be 1 or 0.");
             }
         }
+
+        public virtual bool IsBoss()
+        {
+            return false;
+        }
         public Item DropKey()
         {
             return m_iKey;

@@ -42,5 +42,10 @@ namespace assginment1
                 Console.WriteLine("error, relationship can only be 1 or 0.");
             }
         }
+
+        public override bool IsBoss()
+        {
+            return true;
+        }
     }
 }
