@@ -48,7 +48,7 @@ namespace assginment1
                 m_bDeadLive = a_bDeadLive;
                 m_fMaxHP += a_nLevel;
                 m_nLevel += a_nLevel;
-                m_fAttack += m_nLevel;
+                m_fAttack += m_nLevel + m_nLevel / 3;
                 m_fDefense += m_nLevel;
                 m_fHeal += m_nLevel / 2;
                 m_iRelationship = a_iRelationship;
@@ -137,7 +137,7 @@ namespace assginment1
         }
         public void Healing()
         {
-            if ((m_fHP += this.Heal) <=  m_fMaxHP) 
+            if ((m_fHP + this.Heal) <=  m_fMaxHP) 
             {
                 m_fHP += this.Heal;
             }
@@ -148,7 +148,7 @@ namespace assginment1
         }
         public void Resting()
         {
-            if ((m_fHP += 20) <= m_fMaxHP)
+            if (m_fHP + 20 <= m_fMaxHP)
             {
                 m_fHP += 20;
             }
@@ -161,12 +161,11 @@ namespace assginment1
 
         public void Levelup()
         {
-            m_fHP += 5;
             m_fMaxHP += 5;
             m_nLevel += 1;
             m_fAttack += 3;
             m_fDefense += 2;
-            m_fHeal += 1 / 2;
+            m_fHeal += 3;
         }
 
         public Item DroppableItem

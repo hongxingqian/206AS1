@@ -108,7 +108,7 @@ namespace assginment1
                 else
                 {
                     a_cPlayer.Death();
-                    Console.WriteLine("");
+                    Console.WriteLine("You lose the Battle. You have to run away.");
                 }
             }
 
@@ -438,16 +438,16 @@ namespace assginment1
                 "\nBut her eyes are watching you!", "gaz..gaz..gaz..", 4, 1, true, sickle, null);
             Minion mini4 = new Minion("Puppet", "You see a tall and thin puppet blocking the path. It is perfectly still, wearing a huge sickle. " +
     "\nBut her eyes are watching you!", "gaz..gaz..gaz..", 4, 1, true, sickle, null);
-            Minion miniBoss = new Minion("Rin", "A Witch is flying in the sky. You can hear her loud laughing...", "You are mine! Die! Hahahaha!", 16, 1, true, brokenArmour, goldKey);
-            Minion guard = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 18, 1, true, ironStick, null);
-            Minion guard1 = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 18, 1, true, ironStick, null);
-            Minion guard2 = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 18, 1, true, ironStick, null);
-            Minion eliteGuard1 = new Minion("Sliver Guard", "A tall fully armored statue begins to move", "You are it's target!", 20, 1, true, sword, null);
-            Minion eliteGuard2 = new Minion("Gold Guard", "A tall and strong fully armored statue begins to move", "You are it's target!", 23, 1, true, sword, null);
-            Minion eliteGuard3 = new Minion("Elite Gold Guard", "The Supreme statue begins to move", "You are it's target!", 25, 1, true, sword1, null);
-            Minion eliteGuard4 = new Minion("Supreme Guard", "The Supreme white statue begins to move", "You are it's target!", 30, 1, true, lendArmour, diamondKey);
-            Minion eliteGuard5 = new Minion("Supreme Guard", "The Supreme dark statue begins to move", "You are it's target!", 30, 1, true, lendWeapon, null);
-            Boss professor = new Boss("Alberto", "A big giant ulgy dragon is screaming at you.", "You will die just like other heros who challenged me!", 40, 1, true, null, null);
+            Minion miniBoss = new Minion("Rin", "A Witch is flying in the sky. You can hear her loud laughing...", "You are mine! Die! Hahahaha!", 13, 1, true, brokenArmour, goldKey);
+            Minion guard = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 16, 1, true, ironStick, null);
+            Minion guard1 = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 16, 1, true, ironStick, null);
+            Minion guard2 = new Minion("Bronze Guard", "A tall fully armored statue begins to move", "You are it's target!", 16, 1, true, ironStick, null);
+            Minion eliteGuard1 = new Minion("Sliver Guard", "A tall fully armored statue begins to move", "You are it's target!", 24, 1, true, sword, null);
+            Minion eliteGuard2 = new Minion("Gold Guard", "A tall and strong fully armored statue begins to move", "You are it's target!", 35, 1, true, sword, null);
+            Minion eliteGuard3 = new Minion("Elite Gold Guard", "The Supreme statue begins to move", "You are it's target!", 38, 1, true, sword1, null);
+            Minion eliteGuard4 = new Minion("Supreme Guard", "The Supreme white statue begins to move", "You are it's target!", 40, 1, true, lendArmour, diamondKey);
+            Minion eliteGuard5 = new Minion("Supreme Guard", "The Supreme dark statue begins to move", "You are it's target!", 45, 1, true, lendWeapon, null);
+            Boss professor = new Boss("Alberto", "A big giant ulgy dragon is screaming at you.", "You will die just like other heros who challenged me!", 60, 1, true, null, null);
 
 
             Room castle = new Room("Castle", "You see a big and old castle in front of you.", "There is a huge castle standing out in the top of the hill.", rock);

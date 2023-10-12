@@ -29,7 +29,7 @@ namespace assginment1
                 m_nLevel += a_nLevel;
                 m_fAttack += m_nLevel + 2;
                 m_fDefense += m_nLevel + 1;
-                m_fHeal += m_nLevel / 2;
+                m_fHeal += m_nLevel - (m_nLevel/3);
                 m_iRelationship = a_iRelationship;
                 m_sDescription = a_sDescription;
                 m_sConversation = a_sConversation;
